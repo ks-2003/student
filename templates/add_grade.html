@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Grade</title>
+</head>
+<body>
+    <h1>Add Grade for Student</h1>
+    <form action="/add_grade" method="POST">
+        <label for="roll_number">Select Student (Roll Number):</label><br>
+        <select id="roll_number" name="roll_number" required>
+            {% for student in students %}
+            <option value="{{ student.roll_number }}">{{ student.name }} ({{ student.roll_number }})</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="subject">Subject:</label><br>
+        <input type="text" id="subject" name="subject" required><br><br>
+
+        <label for="score">Score (0-100):</label><br>
+        <input type="number" id="score" name="score" min="0" max="100" required><br><br>
+
+        <input type="submit" value="Add Grade">
+    </form>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Info</title>
+</head>
+<body>
+    <h1>Student Information</h1>
+
+    <p><strong>Name:</strong> {{ student.name }}</p>
+    <p><strong>Roll Number:</strong> {{ student.roll_number }}</p>
+
+    <h3>Grades:</h3>
+    {% if student.grades %}
+        <ul>
+            {% for subject, grade in student.grades.items() %}
+                <li>{{ subject }}: {{ grade }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No grades recorded.</p>
+    {% endif %}
+
+    <p><strong>Average Grade:</strong> {{ student.average }}</p>
+
+    <a href="{{ url_for('home') }}">Back to Home</a>
+</body>
+</html>
